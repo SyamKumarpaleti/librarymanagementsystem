@@ -16,7 +16,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.springboot.main.library.enums.Role;
+
 
 @SuppressWarnings("serial")
 @Entity
@@ -30,8 +30,8 @@ public class User implements UserDetails {
 	private String username;
 	@Column(nullable = false)
 	private String password;
-	@Enumerated(EnumType.STRING)
-	private Role role;
+	@Column(nullable = false)
+	private String role;
 	public int getId() {
 		return id;
 	}
@@ -51,10 +51,11 @@ public class User implements UserDetails {
 		this.password = password;
 	}
 	
-	public Role getRole() {
+	
+	public String getRole() {
 		return role;
 	}
-	public void setRole(Role role) {
+	public void setRole(String role) {
 		this.role = role;
 	}
 	@Override
