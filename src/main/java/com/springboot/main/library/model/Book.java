@@ -8,80 +8,81 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-
 @Entity
 public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id; 
-	private String BookTitle;
+	private int id;
+	private String bookTitle;
 	private String author;
-	private String publisher;
-	private LocalDate publishedDate;
-	private String language;
-	private String status;
+
+	private LocalDate publishedYear;
+
+	private String category;
 	private int numberOfCopies;
 	@ManyToOne
 	private Vendor vendor;
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getBookTitle() {
-		return BookTitle;
+		return bookTitle;
 	}
+
 	public void setBookTitle(String bookTitle) {
-		BookTitle = bookTitle;
+		this.bookTitle = bookTitle;
 	}
+
 	public String getAuthor() {
 		return author;
 	}
+
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public String getPublisher() {
-		return publisher;
-	}
-	public void setPublisher(String publisher) {
-		this.publisher = publisher;
-	}
+
 	public LocalDate getPublishedDate() {
-		return publishedDate;
+		return publishedYear;
 	}
+
 	public void setPublishedDate(LocalDate publishedDate) {
-		this.publishedDate = publishedDate;
+		this.publishedYear = publishedDate;
 	}
-	public String getLanguage() {
-		return language;
+
+	public String getCategory() {
+		return category;
 	}
-	public void setLanguage(String language) {
-		this.language = language;
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
+
 	public int getNumberOfCopies() {
 		return numberOfCopies;
 	}
+
 	public void setNumberOfCopies(int numberOfCopies) {
 		this.numberOfCopies = numberOfCopies;
 	}
+
 	public Vendor getVendor() {
 		return vendor;
 	}
+
 	public void setVendor(Vendor vendor) {
 		this.vendor = vendor;
 	}
+
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", BookTitle=" + BookTitle + ", author=" + author + ", publisher=" + publisher
-				+ ", publishedDate=" + publishedDate + ", language=" + language + ", status=" + status
-				+ ", numberOfCopies=" + numberOfCopies + ", vendor=" + vendor + "]";
+		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", author=" + author + ", publishedYear=" + publishedYear
+				+ ", category=" + category + ", numberOfCopies=" + numberOfCopies + ", vendor=" + vendor + "]";
 	}
-	
+
 }
