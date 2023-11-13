@@ -42,13 +42,12 @@ public class BookService {
 		return optional.get();
 	}
 
-	public Book deleteBook(int bid) throws InvalidIdException {
-
-		Optional<Book> optional = bookRepository.findById(bid);
-		if (!optional.isPresent())
-			throw new InvalidIdException("Book id invalid");
-		return optional.get();
+	public void deleteBook(int id) {
+		bookRepository.deleteById(id);
+		
 	}
+
+	
 
 
 }

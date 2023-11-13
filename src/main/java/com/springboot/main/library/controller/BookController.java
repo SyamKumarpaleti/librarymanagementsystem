@@ -68,12 +68,15 @@ public class BookController {
 	}
 	
 	@DeleteMapping("/{bid}")
-	public ResponseEntity<?> deleteBook(@PathVariable("bid") int bid) throws InvalidIdException {
+	public ResponseEntity<?> deleteBook(@PathVariable("bid") int bid) {
+	try {
 		Book book = bookService.getById(bid);
-		bookService.deleteBook(bid);
-		return ResponseEntity.ok().body("Book deleted successfully");
-
+		bookService.deleteBook(book.getId());
+		return ResponseEntity.ok().body("Book Record deleted");
+	} catch (InvalidIdException e) {
+		return ResponseEntity.badRequest().body(e.getMessage());
 	}
 	
 		
+}
 }
