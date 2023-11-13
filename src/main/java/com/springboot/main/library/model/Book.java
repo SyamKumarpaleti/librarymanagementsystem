@@ -15,7 +15,6 @@ public class Book {
 	private int id;
 	private String bookTitle;
 	private String author;
-	private LocalDate publishedDate;
 	private String category;
 	private int numberOfCopies;
 	@ManyToOne
@@ -45,13 +44,7 @@ public class Book {
 		this.author = author;
 	}
 
-	public LocalDate getPublishedDate() {
-		return publishedDate;
-	}
-
-	public void setPublishedDate(LocalDate publishedDate) {
-		this.publishedDate = publishedDate;
-	}
+	
 
 	public String getCategory() {
 		return category;
@@ -79,9 +72,11 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", author=" + author + ", publishedDate=" + publishedDate
-				+ ", category=" + category + ", numberOfCopies=" + numberOfCopies + ", vendor=" + vendor + "]";
+		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", author=" + author + ", category=" + category
+				+ ", numberOfCopies=" + numberOfCopies + ", vendor=" + vendor + "]";
 	}
+
+	
 
 	
 
