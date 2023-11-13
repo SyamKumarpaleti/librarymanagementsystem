@@ -17,10 +17,9 @@ public class StudentBook {
 	private Student student;
 	@OneToOne
 	private Book book;
+	private boolean issue;
 	private LocalDate issueDate;
-	private LocalDate returnDate;
-	private LocalDate dueDate;
-	private double fineAmount;
+	
 	public int getId() {
 		return id;
 	}
@@ -45,29 +44,20 @@ public class StudentBook {
 	public void setIssueDate(LocalDate issueDate) {
 		this.issueDate = issueDate;
 	}
-	public LocalDate getReturnDate() {
-		return returnDate;
+	
+	
+	public boolean isIssue() {
+		return issue;
 	}
-	public void setReturnDate(LocalDate returnDate) {
-		this.returnDate = returnDate;
-	}
-	public LocalDate getDueDate() {
-		return dueDate;
-	}
-	public void setDueDate(LocalDate dueDate) {
-		this.dueDate = dueDate;
-	}
-	public double getFineAmount() {
-		return fineAmount;
-	}
-	public void setFineAmount(double fineAmount) {
-		this.fineAmount = fineAmount;
+	public void setIssue(boolean issue) {
+		this.issue = issue;
 	}
 	@Override
 	public String toString() {
-		return "StudentBook [id=" + id + ", student=" + student + ", book=" + book + ", issueDate=" + issueDate
-				+ ", returnDate=" + returnDate + ", dueDate=" + dueDate + ", fineAmount=" + fineAmount + "]";
+		return "StudentBook [id=" + id + ", student=" + student + ", book=" + book + ", issue=" + issue + ", issueDate="
+				+ issueDate + "]";
 	}
+	
 	
 
 }

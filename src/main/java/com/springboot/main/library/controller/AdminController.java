@@ -51,13 +51,11 @@ public class AdminController {
 
 }
 	
-	
 	@GetMapping("/getone/{id}")
 	public ResponseEntity<?> getone(@PathVariable("id")int id) throws InvalidIdException {
 	    Admin admin = adminService.getOne(id);
 		return ResponseEntity.ok().body(admin);
 
-		
 	}
 	@GetMapping("/getall") /// vendor/getall?page=0&size=10
 	public List<Admin> getAll(@RequestParam(value="page",required = false, defaultValue = "0") Integer page,
@@ -68,20 +66,18 @@ public class AdminController {
 		return adminService.getAll(pageable);
 	}
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteVendor(@PathVariable("id") int id) throws InvalidIdException {
-		
+	public ResponseEntity<?> deleteAdmin(@PathVariable("id") int id) throws InvalidIdException {
 		//validate id
 		Admin admin = adminService.getOne(id);
 		//delete
 		adminService.deleteAdmin(admin);
-		return ResponseEntity.ok().body("vendor deleted successfully");
+		return ResponseEntity.ok().body("Admin deleted successfully");
 	}
 	@PutMapping("/update/{id}")  //:update: which record to update?   give me new value for update
 	public ResponseEntity<?> updateAdmin(@PathVariable("id") int id,
 							@RequestBody AdminDto newAdmin) throws InvalidIdException {
 		//validate id
 		Admin oldAdmin = adminService.getOne(id);
-		
 		if(newAdmin.getName() != null)
 			oldAdmin.setName(newAdmin.getName());
 		if(newAdmin.getEmail() != null) 
