@@ -16,7 +16,7 @@ public class Book {
 	private String bookTitle;
 	private String author;
 	private String category;
-	private int numberOfCopies;
+	private String numberOfCopies;
 	@ManyToOne
 	private Vendor vendor;
 
@@ -54,13 +54,7 @@ public class Book {
 		this.category = category;
 	}
 
-	public int getNumberOfCopies() {
-		return numberOfCopies;
-	}
-
-	public void setNumberOfCopies(int numberOfCopies) {
-		this.numberOfCopies = numberOfCopies;
-	}
+	
 
 	public Vendor getVendor() {
 		return vendor;
@@ -70,13 +64,19 @@ public class Book {
 		this.vendor = vendor;
 	}
 
+	public String getNumberOfCopies() {
+		return numberOfCopies;
+	}
+
+	public void setNumberOfCopies(String numberOfCopies) {
+		this.numberOfCopies = numberOfCopies;
+	}
+
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", author=" + author + ", category=" + category
 				+ ", numberOfCopies=" + numberOfCopies + ", vendor=" + vendor + "]";
 	}
-
-	
 
 	
 

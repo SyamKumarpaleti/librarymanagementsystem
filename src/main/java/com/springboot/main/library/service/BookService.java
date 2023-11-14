@@ -47,6 +47,18 @@ public class BookService {
 		
 	}
 
+	public Book getOne(int id)throws InvalidIdException {
+
+		Optional<Book> optional = bookRepository.findById(id);
+		if (!optional.isPresent())
+			throw new InvalidIdException("Book id invalid");
+		return optional.get();
+	} 
+
+	public Book postBook(Book book) {
+				return bookRepository.save(book);
+	}
+
 	
 
 
