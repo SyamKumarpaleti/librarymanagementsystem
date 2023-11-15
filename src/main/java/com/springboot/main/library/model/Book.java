@@ -1,12 +1,13 @@
 package com.springboot.main.library.model;
 
-import java.time.LocalDate;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Book {
@@ -16,9 +17,12 @@ public class Book {
 	private String bookTitle;
 	private String author;
 	private String category;
-	private String numberOfCopies;
+	private String isbn;
+	private int bookPrice;
+	private String noOfCopies;
+	
 	@ManyToOne
-	private Vendor vendor;
+	private Admin admin;
 
 	public int getId() {
 		return id;
@@ -44,8 +48,6 @@ public class Book {
 		this.author = author;
 	}
 
-	
-
 	public String getCategory() {
 		return category;
 	}
@@ -54,30 +56,43 @@ public class Book {
 		this.category = category;
 	}
 
-	
-
-	public Vendor getVendor() {
-		return vendor;
+	public String getIsbn() {
+		return isbn;
 	}
 
-	public void setVendor(Vendor vendor) {
-		this.vendor = vendor;
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
 
-	public String getNumberOfCopies() {
-		return numberOfCopies;
+	public int getBookPrice() {
+		return bookPrice;
 	}
 
-	public void setNumberOfCopies(String numberOfCopies) {
-		this.numberOfCopies = numberOfCopies;
+	public void setBookPrice(int bookPrice) {
+		this.bookPrice = bookPrice;
+	}
+
+	public String getNoOfCopies() {
+		return noOfCopies;
+	}
+
+	public void setNoOfCopies(String string) {
+		this.noOfCopies = string;
+	}
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
 	}
 
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", author=" + author + ", category=" + category
-				+ ", numberOfCopies=" + numberOfCopies + ", vendor=" + vendor + "]";
+				+ ", isbn=" + isbn + ", bookPrice=" + bookPrice + ", noOfCopies=" + noOfCopies + ", admin=" + admin
+				+ "]";
 	}
-
 	
-
 }

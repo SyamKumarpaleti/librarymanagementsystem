@@ -1,11 +1,8 @@
 package com.springboot.main.library.dto;
 
-import com.springboot.main.library.model.User;
-
 public class AdminDto {
 	private String name;
 	private String email;
-	private User user;
 	public String getName() {
 		return name;
 	}
@@ -18,11 +15,11 @@ public class AdminDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public User getUser() {
-		return user;
+	@Override
+	public String toString() {
+		return "AdminDto [name=" + name + ", email=" + email + "]";
 	}
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
+	
 
 }

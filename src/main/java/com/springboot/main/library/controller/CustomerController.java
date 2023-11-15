@@ -19,14 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.springboot.main.library.exception.InvalidIdException;
-import com.springboot.main.library.model.Student;
+import com.springboot.main.library.model.Customer;
 import com.springboot.main.library.model.User;
 import com.springboot.main.library.service.StudentService;
 import com.springboot.main.library.service.UserService;
 
 @RestController
 @RequestMapping("/student")
-public class StudentController {
+public class CustomerController {
 	@Autowired
 	private StudentService studentService;
 	@Autowired
@@ -34,7 +34,7 @@ public class StudentController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	@PostMapping("/post")
-	public Student insertStudent(@RequestBody Student student) {
+	public Customer insertStudent(@RequestBody Customer student) {
 		
 		User user =student.getUser();
 		String passwordPlain =user.getPassword();
@@ -49,12 +49,12 @@ public class StudentController {
 	}
 	@GetMapping("/getone/{id}")
 	public ResponseEntity<?> getone(@PathVariable("id")int id) throws InvalidIdException {
-	    Student student = studentService.getOne(id);
+	    Customer student = studentService.getOne(id);
 		return ResponseEntity.ok().body(student);
 
 	}
 	@GetMapping("/getall") /// student/getall?page=0&size=10
-	public List<Student> getAll(@RequestParam(value="page",required = false, defaultValue = "0") Integer page,
+	public List<Customer> getAll(@RequestParam(value="page",required = false, defaultValue = "0") Integer page,
 							   @RequestParam(value="size", required = false, defaultValue = "10000000") Integer size) { // v1 v2 v3 v4 v5
 																										// : size & page
 
@@ -64,16 +64,16 @@ public class StudentController {
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteStudent(@PathVariable("id") int id) throws InvalidIdException {
 		//validate id
-		Student student = studentService.getOne(id);
+		Customer student = studentService.getOne(id);
 		//delete
 		studentService.deleteStudent(student);
 		return ResponseEntity.ok().body("Student deleted successfully");
 	}
 	@PutMapping("/update/{id}")  //:update: which record to update?   give me new value for update
 	public ResponseEntity<?> updateAdmin(@PathVariable("id") int id,
-							@RequestBody Student newStudent) throws InvalidIdException {
+							@RequestBody Customer newStudent) throws InvalidIdException {
 		//validate id
-		Student oldStudent = studentService.getOne(id);
+		Customer oldStudent = studentService.getOne(id);
 		if(newStudent.getName() != null)
 			oldStudent.setName(newStudent.getName());
 		if(newStudent.getEmail() != null) 

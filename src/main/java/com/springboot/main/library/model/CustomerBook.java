@@ -9,28 +9,27 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class StudentBook {
+public class CustomerBook {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id; 
 	@OneToOne
-	private Student student;
+	private Customer customer;
 	@OneToOne
 	private Book book;
 	private boolean issue;
 	private LocalDate issueDate;
-	
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Student getStudent() {
-		return student;
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 	public Book getBook() {
 		return book;
@@ -38,25 +37,24 @@ public class StudentBook {
 	public void setBook(Book book) {
 		this.book = book;
 	}
-	public LocalDate getIssueDate() {
-		return issueDate;
-	}
-	public void setIssueDate(LocalDate issueDate) {
-		this.issueDate = issueDate;
-	}
-	
-	
 	public boolean isIssue() {
 		return issue;
 	}
 	public void setIssue(boolean issue) {
 		this.issue = issue;
 	}
+	public LocalDate getIssueDate() {
+		return issueDate;
+	}
+	public void setIssueDate(LocalDate issueDate) {
+		this.issueDate = issueDate;
+	}
 	@Override
 	public String toString() {
-		return "StudentBook [id=" + id + ", student=" + student + ", book=" + book + ", issue=" + issue + ", issueDate="
-				+ issueDate + "]";
+		return "CustomerBook [id=" + id + ", customer=" + customer + ", book=" + book + ", issue=" + issue
+				+ ", issueDate=" + issueDate + "]";
 	}
+	
 	
 	
 

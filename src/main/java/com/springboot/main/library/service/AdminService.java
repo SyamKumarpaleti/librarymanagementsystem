@@ -1,5 +1,4 @@
 package com.springboot.main.library.service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -15,34 +14,44 @@ public class AdminService {
 	@Autowired
 	private AdminRepository adminRepository;
 
-	public Admin insert(Admin admin) {
-		
+	
+	public Admin postAdmin(Admin admin) {
+		// TODO Auto-generated method stub
 		return adminRepository.save(admin);
 	}
 
-	public  Admin getOne(int id) throws InvalidIdException {
-		Optional<Admin> optional=adminRepository.findById(id);
+
+	public Admin getOne(int id) throws InvalidIdException {
+		Optional<Admin> optional =  adminRepository.findById(id);
 		if(!optional.isPresent()){
 			throw new InvalidIdException("Admin ID Invalid");
 		}
 		return optional.get();
 	}
-	
+
 
 	public List<Admin> getAll(Pageable pageable) {
 		// TODO Auto-generated method stub
 		return adminRepository.findAll(pageable).getContent();
 	}
 
+
 	public void deleteAdmin(Admin admin) {
+		// TODO Auto-generated method stub
 		adminRepository.delete(admin);
+		
 	}
 
-	public Admin postAdmin(Admin admin) {
-		
-		return adminRepository.save(admin);
+
+
+
+	
+	
+
 	}
-		
+
 	
 	
-}
+
+	
+	
