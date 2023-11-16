@@ -21,14 +21,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.springboot.main.library.exception.InvalidIdException;
 import com.springboot.main.library.model.Customer;
 import com.springboot.main.library.model.User;
-import com.springboot.main.library.service.StudentService;
+import com.springboot.main.library.service.CustomerService;
 import com.springboot.main.library.service.UserService;
 
 @RestController
 @RequestMapping("/student")
 public class CustomerController {
 	@Autowired
-	private StudentService studentService;
+	private CustomerService studentService;
 	@Autowired
 	private UserService userService;
 	@Autowired

@@ -11,7 +11,7 @@ import com.springboot.main.library.exception.InvalidIdException;
 import com.springboot.main.library.model.Customer;
 import com.springboot.main.library.repository.CustomerRepository;
 @Service
-public class StudentService {
+public class CustomerService {
 	@Autowired
 	private CustomerRepository studentRepository;
 
