@@ -40,7 +40,7 @@ public class CustomerController {
 		String passwordPlain =user.getPassword();
 		String encodedPassword =passwordEncoder.encode(passwordPlain);
 		user.setPassword(encodedPassword);
-	     user.setRole("STUDENT");
+	     user.setRole("CUSTOMER");
 	     
 	     user =userService.insert(user);
 	     customer.setUser(user);
