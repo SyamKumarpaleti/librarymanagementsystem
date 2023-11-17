@@ -5,6 +5,21 @@ public class BookDto {
 	private String author;
 	private String category;
 	private String numberOfCopies;
+	private String isbn;
+	private String bookPrice;
+	public String getIsbn() {
+		return isbn;
+	}
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+	
+	public String getBookPrice() {
+		return bookPrice;
+	}
+	public void setBookPrice(String bookPrice) {
+		this.bookPrice = bookPrice;
+	}
 	public String getBookTitle() {
 		return bookTitle;
 	}
@@ -32,8 +47,9 @@ public class BookDto {
 	@Override
 	public String toString() {
 		return "BookDto [bookTitle=" + bookTitle + ", author=" + author + ", category=" + category + ", numberOfCopies="
-				+ numberOfCopies + "]";
+				+ numberOfCopies + ", isbn=" + isbn + ", bookPrice=" + bookPrice + "]";
 	}
+	
 	
 	
 
