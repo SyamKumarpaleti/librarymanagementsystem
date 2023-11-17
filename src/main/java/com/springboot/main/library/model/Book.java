@@ -20,6 +20,7 @@ public class Book {
 	private String isbn;
 	private String bookPrice;
 	private String noOfCopies;
+	private String status;
 	
 	@ManyToOne
 	private Admin admin;
@@ -68,16 +69,24 @@ public class Book {
 		return bookPrice;
 	}
 
-	public void setBookPrice(String string) {
-		this.bookPrice = string;
+	public void setBookPrice(String bookPrice) {
+		this.bookPrice = bookPrice;
 	}
 
 	public String getNoOfCopies() {
 		return noOfCopies;
 	}
 
-	public void setNoOfCopies(String string) {
-		this.noOfCopies = string;
+	public void setNoOfCopies(String noOfCopies) {
+		this.noOfCopies = noOfCopies;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public Admin getAdmin() {
@@ -91,8 +100,9 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", author=" + author + ", category=" + category
-				+ ", isbn=" + isbn + ", bookPrice=" + bookPrice + ", noOfCopies=" + noOfCopies + ", admin=" + admin
-				+ "]";
+				+ ", isbn=" + isbn + ", bookPrice=" + bookPrice + ", noOfCopies=" + noOfCopies + ", status=" + status
+				+ ", admin=" + admin + "]";
 	}
+
 	
 }

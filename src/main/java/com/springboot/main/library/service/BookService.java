@@ -60,5 +60,11 @@ public class BookService {
 		return bookRepository.findBook(id);
 	}
 
+	public Book save(Book book) {
+		// TODO Auto-generated method stub
+		return bookRepository.save(book);
+		
+	}
+
 	
 }

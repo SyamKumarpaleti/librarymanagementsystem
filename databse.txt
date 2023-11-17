@@ -297,3 +297,6 @@ localhost:8182/customer/getauthor/APJ abdul kalam
 
 customer get books by book id:
 localhost:8182/customer/get/20
+
+in wampserver use :
+update book set status="available"where id=7;

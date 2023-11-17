@@ -19,8 +19,8 @@ public class CustomerBook {
 	private Customer customer;
 	@OneToOne
 	private Book book;
-	private boolean issue;
 	private LocalDate issueDate;
+	private int noOfWeeks;
 	private double amount;
 	public int getId() {
 		return id;
@@ -40,17 +40,17 @@ public class CustomerBook {
 	public void setBook(Book book) {
 		this.book = book;
 	}
-	public boolean isIssue() {
-		return issue;
-	}
-	public void setIssue(boolean issue) {
-		this.issue = issue;
-	}
 	public LocalDate getIssueDate() {
 		return issueDate;
 	}
 	public void setIssueDate(LocalDate issueDate) {
 		this.issueDate = issueDate;
+	}
+	public int getNoOfWeeks() {
+		return noOfWeeks;
+	}
+	public void setNoOfWeeks(int noOfWeeks) {
+		this.noOfWeeks = noOfWeeks;
 	}
 	public double getAmount() {
 		return amount;
@@ -60,8 +60,8 @@ public class CustomerBook {
 	}
 	@Override
 	public String toString() {
-		return "CustomerBook [id=" + id + ", customer=" + customer + ", book=" + book + ", issue=" + issue
-				+ ", issueDate=" + issueDate + ", amount=" + amount + "]";
+		return "CustomerBook [id=" + id + ", customer=" + customer + ", book=" + book + ", issueDate=" + issueDate
+				+ ", noOfWeeks=" + noOfWeeks + ", amount=" + amount + "]";
 	}
 	
 }
