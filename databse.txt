@@ -273,3 +273,27 @@ localhost:8182/Book/all
 Get Book by admin id :
 
 localhost:8182/Book/all/2
+
+
+
+post customer:
+
+localhost:8182/customer/post
+ {
+    "name":"saitarun",
+    "email":"saitarun@gmail.com",
+    "user":{
+        "username":"saitarun",
+        "password":"saitarun"
+    }
+}
+ customer get books by title:
+localhost:8182/customer/getbook/The Uncharted Path
+
+
+customer get books by author:
+
+localhost:8182/customer/getauthor/APJ abdul kalam 
+
+customer get books by book id:
+localhost:8182/customer/get/20

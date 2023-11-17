@@ -34,7 +34,7 @@ public class BookService {
 	public Book getOne(int bid) throws InvalidIdException{
 		Optional<Book> optional =  bookRepository.findById(bid);
 		if(!optional.isPresent()){
-			throw new InvalidIdException("Admin ID Invalid");
+			throw new InvalidIdException("Book ID Invalid");
 		}
 		return optional.get();
 	}
@@ -44,5 +44,21 @@ public class BookService {
 		bookRepository.delete(book);
 		
 	}
+
+	public Book getBookTitle(String bookTitle) {
+		// TODO Auto-generated method stub
+		return bookRepository.findBookTitle(bookTitle);
+	}
+
+	public Book getAuthor(String author) {
+		// TODO Auto-generated method stub
+		return bookRepository.findAuthor(author);
+	}
+
+	public Book getBook(int id) {
+		// TODO Auto-generated method stub
+		return bookRepository.findBook(id);
+	}
+
 	
 }

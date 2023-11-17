@@ -19,69 +19,93 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.springboot.main.library.exception.InvalidIdException;
+import com.springboot.main.library.model.Book;
 import com.springboot.main.library.model.Customer;
 import com.springboot.main.library.model.User;
+import com.springboot.main.library.service.BookService;
 import com.springboot.main.library.service.CustomerService;
 import com.springboot.main.library.service.UserService;
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/customer")
 public class CustomerController {
 	@Autowired
-	private CustomerService studentService;
+	private CustomerService customerService;
+	@Autowired
+	private BookService bookService;
+	
 	@Autowired
 	private UserService userService;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	@PostMapping("/post")
-	public Customer insertStudent(@RequestBody Customer student) {
+	public Customer postCustomer(@RequestBody Customer customer) {
 		
-		User user =student.getUser();
+		User user =customer.getUser();
 		String passwordPlain =user.getPassword();
 		String encodedPassword =passwordEncoder.encode(passwordPlain);
 		user.setPassword(encodedPassword);
-	     user.setRole("STUDENT");
+	     user.setRole("CUSTOMER");
 	     
 	     user =userService.insert(user);
-	     student.setUser(user);
-	return	studentService.insert(student);
+	     customer.setUser(user);
+	return	customerService.postCustomer(customer);
 		
 	}
+	/*Get customer*/
 	@GetMapping("/getone/{id}")
 	public ResponseEntity<?> getone(@PathVariable("id")int id) throws InvalidIdException {
-	    Customer student = studentService.getOne(id);
-		return ResponseEntity.ok().body(student);
+	    Customer customer = customerService.getOne(id);
+		return ResponseEntity.ok().body(customer);
 
 	}
-	@GetMapping("/getall") /// student/getall?page=0&size=10
+	@GetMapping("/getall") /// customer/getall?page=0&size=10
 	public List<Customer> getAll(@RequestParam(value="page",required = false, defaultValue = "0") Integer page,
 							   @RequestParam(value="size", required = false, defaultValue = "10000000") Integer size) { // v1 v2 v3 v4 v5
 																										// : size & page
 
 		Pageable pageable = PageRequest.of(page, size); // null null
-		return studentService.getAll(pageable);
+		return customerService.getAll(pageable);
 	}
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<?> deleteStudent(@PathVariable("id") int id) throws InvalidIdException {
+	public ResponseEntity<?> deleteCustomer(@PathVariable("id") int id) throws InvalidIdException {
 		//validate id
-		Customer student = studentService.getOne(id);
+		Customer customer = customerService.getOne(id);
 		//delete
-		studentService.deleteStudent(student);
-		return ResponseEntity.ok().body("Student deleted successfully");
+		customerService.deleteCustomer(customer);
+		return ResponseEntity.ok().body("Customer deleted successfully");
 	}
 	@PutMapping("/update/{id}")  //:update: which record to update?   give me new value for update
 	public ResponseEntity<?> updateAdmin(@PathVariable("id") int id,
-							@RequestBody Customer newStudent) throws InvalidIdException {
+							@RequestBody Customer newCustomer) throws InvalidIdException {
 		//validate id
-		Customer oldStudent = studentService.getOne(id);
-		if(newStudent.getName() != null)
-			oldStudent.setName(newStudent.getName());
-		if(newStudent.getEmail() != null) 
-			oldStudent.setEmail(newStudent.getEmail()); 
+		Customer oldCustomer = customerService.getOne(id);
+		if(newCustomer.getName() != null)
+			oldCustomer.setName(newCustomer.getName());
+		if(newCustomer.getEmail() != null) 
+			oldCustomer.setEmail(newCustomer.getEmail()); 
 		 
-		oldStudent = studentService.postStudent(oldStudent); 
-		return ResponseEntity.ok().body(oldStudent);
+		oldCustomer = customerService.postCustomer(oldCustomer); 
+		return ResponseEntity.ok().body(oldCustomer);
+	}
+	@GetMapping("/getbook/{bookTitle}")
+	public Book getBookTitle(@PathVariable("bookTitle") String bookTitle) {
+	Book book=bookService.getBookTitle(bookTitle);
+	return book;
+			
+	}
+	/*localhost:8182/customer/getbook/The Uncharted Path*/
+	@GetMapping("/getauthor/{author}")
+	public Book getAuthor(@PathVariable("author") String author) {
+	Book book=bookService.getAuthor(author);
+	return book;
+
+	}
+	@GetMapping("/get/{id}")
+	public Book getBook(@PathVariable("id") int id) {
+	Book book=bookService.getBook(id);
+	return book;
+
 	}
 	
-
 }
