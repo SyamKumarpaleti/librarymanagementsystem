@@ -18,7 +18,7 @@ public class Book {
 	private String author;
 	private String category;
 	private String isbn;
-	private int bookPrice;
+	private String bookPrice;
 	private String noOfCopies;
 	
 	@ManyToOne
@@ -64,12 +64,12 @@ public class Book {
 		this.isbn = isbn;
 	}
 
-	public int getBookPrice() {
+	public String getBookPrice() {
 		return bookPrice;
 	}
 
-	public void setBookPrice(int bookPrice) {
-		this.bookPrice = bookPrice;
+	public void setBookPrice(String string) {
+		this.bookPrice = string;
 	}
 
 	public String getNoOfCopies() {

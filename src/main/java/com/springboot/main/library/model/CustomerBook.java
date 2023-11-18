@@ -7,8 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "orderTable")
 public class CustomerBook {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,6 +21,7 @@ public class CustomerBook {
 	private Book book;
 	private boolean issue;
 	private LocalDate issueDate;
+	private double amount;
 	public int getId() {
 		return id;
 	}
@@ -49,13 +52,16 @@ public class CustomerBook {
 	public void setIssueDate(LocalDate issueDate) {
 		this.issueDate = issueDate;
 	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
 	@Override
 	public String toString() {
 		return "CustomerBook [id=" + id + ", customer=" + customer + ", book=" + book + ", issue=" + issue
-				+ ", issueDate=" + issueDate + "]";
+				+ ", issueDate=" + issueDate + ", amount=" + amount + "]";
 	}
 	
-	
-	
-
 }

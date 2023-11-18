@@ -65,7 +65,7 @@ public class AdminController {
 		}
 
 	}
-	// localhost:8182/vendor/getall?page=2&size=2
+	// localhost:8182/admin/getall?page=2&size=2
 
 	@GetMapping("/getall") /// admin/getall?page=0&size=10
 	public List<Admin> getAll(@RequestParam(value="page",required = false, defaultValue = "0") Integer page,
