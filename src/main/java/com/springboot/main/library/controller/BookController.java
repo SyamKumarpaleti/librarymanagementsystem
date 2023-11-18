@@ -109,8 +109,7 @@ public class BookController {
 				oldBook.setAuthor(newBook.getAuthor());
 			if(newBook.getCategory() != null)
 				oldBook.setCategory(newBook.getCategory());
-			if(newBook.getBookTitle() != null)
-				oldBook.setBookTitle(newBook.getBookTitle());
+			
 			if(newBook.getNumberOfCopies() != null)
 				oldBook.setNumberOfCopies(newBook.getNumberOfCopies());
 

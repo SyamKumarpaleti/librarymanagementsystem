@@ -16,16 +16,9 @@ public class Book {
 	private String category;
 	private String isbn;
 
-<<<<<<< HEAD
 	private double bookPrice;
 	private String numberOfCopies;
 
-=======
-	
-	private double bookPrice;
-	private String numberOfCopies;
-	
->>>>>>> 03bc5c1ac783a799d7f4858085cc6dcb8b9a162b
 	@ManyToOne
 	private Admin admin;
 
@@ -93,15 +86,11 @@ public class Book {
 		this.admin = admin;
 	}
 
-<<<<<<< HEAD
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", author=" + author + ", category=" + category
 				+ ", isbn=" + isbn + ", bookPrice=" + bookPrice + ", numberOfCopies=" + numberOfCopies + ", admin="
 				+ admin + "]";
 	}
-=======
-	
->>>>>>> 03bc5c1ac783a799d7f4858085cc6dcb8b9a162b
 
 }
