@@ -1,7 +1,7 @@
 package com.springboot.main.library.repository;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -22,6 +22,12 @@ public interface BookRepository extends JpaRepository<Book, Integer>{
 	Book findAuthor(String author);
 	@Query(value = "select * from book where id=?1",nativeQuery = true)
 	Book findBook(int id);
+    
+	@Query("select b from Book b where b.isbn=?1")
+	Book getByIsbn(String isbn);
+    
+	@Query("select b from Book b where b.author=?1 ")
+	Optional<?> getByauthor(String name);
 	
    /* @Query(value = "select * from book where book_title=?1",nativeQuery = true)
 	Customer findBookTitle(String bookTitle);*/

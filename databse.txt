@@ -1,0 +1,302 @@
+{
+    "name":"syam",
+    "email":"syampk19@gmail.com",
+    "user":{
+        "username":"syam",
+        "password":"syam7898"
+    }
+}
+
+
+{
+    "name":"mohan reddy",
+    "email":"mohanreddy@gmail.com",
+    "user":{
+        "username":"mohan",
+        "password":"mohan123"
+    }
+}
+
+
+ Book Post by Admin id :
+
+localhost:8182/Book/add/2
+
+1)
+{
+    "bookTitle":"Wings of Fire",
+    "author":"APJ abdul kalam",
+    "category":"Auto Biography",
+    "isbn":"APJ123",
+    "bookPrice":1000,
+    "noOfCopies":"12"
+}
+2)
+{
+        "bookTitle": "Beyond the Stars",
+        "author": "Jane Smith",
+        "category": "Science Fiction",
+        "isbn": "2345678901",
+        "bookPrice": 15.99,
+        "noOfCopies": 40
+    }
+
+3)
+{
+        "bookTitle": "Adventures in Wonderland",
+        "author": "Lewis Carroll",
+        "category": "Fantasy",
+        "isbn": "0987654321",
+        "bookPrice": 12.99,
+        "noOfCopies": 30
+    }
+
+4)
+
+ {
+        "bookTitle": "The Silent Observer",
+        "author": "John Doe",
+        "category": "Mystery",
+        "isbn": "1234567890",
+        "bookPrice": 19.99,
+        "noOfCopies": 50
+    }
+
+5)
+
+    {
+        "bookTitle": "The Galactic Odyssey",
+        "author": "Alicia Johnson",
+        "category": "Science Fiction",
+        "isbn": "1234567890123",
+        "bookPrice": 24.99,
+        "noOfCopies": 50
+    }
+6)
+    {
+        "bookTitle": "Eternal Cosmos",
+        "author": "David Anderson",
+        "category": "Science Fiction",
+        "isbn": "9876543210987",
+        "bookPrice": 19.99,
+        "noOfCopies": 30
+    }
+7)   
+    {
+        "bookTitle": "Quantum Dreams",
+        "author": "Megan Roberts",
+        "category": "Science Fiction",
+        "isbn": "2345678901234",
+        "bookPrice": 18.99,
+        "noOfCopies": 40
+    }
+
+8)
+
+     {
+        "bookTitle": "Eternal Cosmos",
+        "author": "Jessica Brown",
+        "category": "Science Fiction",
+        "isbn": "3456789012345",
+        "bookPrice": 29.99,
+        "noOfCopies": 40
+    }
+9)
+
+    {
+        "bookTitle": "The Enigmatic Detective",
+        "author": "John Smith",
+        "category": "Mystery",
+        "isbn": "978-1234567890",
+        "bookPrice": 29.99,
+        "noOfCopies": 20
+    }
+
+10)
+    {
+        "bookTitle": "Whispers in the Shadows",
+        "author": "Emma White",
+        "category": "Mystery",
+        "isbn": "978-2345678901",
+        "bookPrice": 24.99,
+        "noOfCopies": 15
+    }
+
+11)
+
+    {
+        "bookTitle": "Cryptic Clues",
+        "author": "James Anderson",
+        "category": "Mystery",
+        "isbn": "978-3456789012",
+        "bookPrice": 34.99,
+        "noOfCopies": 25
+    }
+
+12)
+
+    {
+        "bookTitle": "Midnight Puzzles",
+        "author": "Sophia Davis",
+        "category": "Mystery",
+        "isbn": "978-4567890123",
+        "bookPrice": 27.99,
+        "noOfCopies": 18
+    }
+
+13)
+
+    {
+        "bookTitle": "Secrets Unveiled",
+        "author": "David Miller",
+        "category": "Mystery",
+        "isbn": "978-5678901234",
+        "bookPrice": 31.99,
+        "noOfCopies": 22
+    }
+
+14)
+[
+    {
+        "bookTitle": "The Mystic Realm",
+        "author": "Sarah Williams",
+        "category": "Fantasy",
+        "isbn": "978-1234567890",
+        "bookPrice": 19.99,
+        "noOfCopies": 15
+    }
+
+15)
+    {
+        "bookTitle": "Dragons of Eldoria",
+        "author": "Michael Johnson",
+        "category": "Fantasy",
+        "isbn": "978-2345678901",
+        "bookPrice": 24.99,
+        "noOfCopies": 20
+    }
+16)
+
+    {
+        "bookTitle": "Enchanted Quest",
+        "author": "Emily Davis",
+        "category": "Fantasy",
+        "isbn": "978-3456789012",
+        "bookPrice": 29.99,
+        "noOfCopies": 25
+    }
+
+17)
+    {
+        "bookTitle": "Wizard's Legacy",
+        "author": "Christopher White",
+        "category": "Fantasy",
+        "isbn": "978-4567890123",
+        "bookPrice": 34.99,
+        "noOfCopies": 18
+    }
+18)
+
+    {
+        "bookTitle": "Realm of Wonders",
+        "author": "Jessica Smith",
+        "category": "Fantasy",
+        "isbn": "978-5678901234",
+        "bookPrice": 27.99,
+        "noOfCopies": 22
+    }
+19)
+
+    {
+        "bookTitle": "My Journey",
+        "author": "Michelle Johnson",
+        "category": "Auto Biography",
+        "isbn": "978-1234567890",
+        "bookPrice": 19.99,
+        "noOfCopies": 15
+    }
+
+20)
+
+    {
+        "bookTitle": "Life in Pages",
+        "author": "Andrew Thompson",
+        "category": "Auto Biography",
+        "isbn": "978-2345678901",
+        "bookPrice": 24.99,
+        "noOfCopies": 20
+    }
+
+21)
+
+    {
+        "bookTitle": "Reflections of a Life",
+        "author": "Sophie Williams",
+        "category": "Auto Biography",
+        "isbn": "978-3456789012",
+        "bookPrice": 29.99,
+        "noOfCopies": 18
+    }
+
+22)
+
+    {
+        "bookTitle": "In My Own Words",
+        "author": "Robert Davis",
+        "category": "Auto Biography",
+        "isbn": "978-4567890123",
+        "bookPrice": 22.99,
+        "noOfCopies": 25
+    }
+
+23)
+
+    {
+        "bookTitle": "The Uncharted Path",
+        "author": "Emily Robinson",
+        "category": "Auto Biography",
+        "isbn": "978-5678901234",
+        "bookPrice": 27.99,
+        "noOfCopies": 22
+    }
+
+
+
+
+
+
+Get All Books :
+
+localhost:8182/Book/all
+
+
+Get Book by admin id :
+
+localhost:8182/Book/all/2
+
+
+
+post customer:
+
+localhost:8182/customer/post
+ {
+    "name":"saitarun",
+    "email":"saitarun@gmail.com",
+    "user":{
+        "username":"saitarun",
+        "password":"saitarun"
+    }
+}
+ customer get books by title:
+localhost:8182/customer/getbook/The Uncharted Path
+
+
+customer get books by author:
+
+localhost:8182/customer/getauthor/APJ abdul kalam 
+
+customer get books by book id:
+localhost:8182/customer/get/20
+
+in wampserver use :
+update book set status="available"where id=7;

@@ -7,6 +7,7 @@ public class BookDto {
 	private String numberOfCopies;
 	private String isbn;
 	private String bookPrice;
+	private String status;
 	public String getIsbn() {
 		return isbn;
 	}
@@ -44,11 +45,18 @@ public class BookDto {
 	public void setNumberOfCopies(String numberOfCopies) {
 		this.numberOfCopies = numberOfCopies;
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	@Override
 	public String toString() {
 		return "BookDto [bookTitle=" + bookTitle + ", author=" + author + ", category=" + category + ", numberOfCopies="
-				+ numberOfCopies + ", isbn=" + isbn + ", bookPrice=" + bookPrice + "]";
+				+ numberOfCopies + ", isbn=" + isbn + ", bookPrice=" + bookPrice + ", status=" + status + "]";
 	}
+	
 	
 	
 	

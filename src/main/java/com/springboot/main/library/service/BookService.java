@@ -60,5 +60,26 @@ public class BookService {
 		return bookRepository.findBook(id);
 	}
 
+	public Book save(Book book) {
+		// TODO Auto-generated method stub
+		return bookRepository.save(book);
+		
+	}
+
+	public Book getBook(String isbn) {
+		
+		return bookRepository.getByIsbn(isbn);
+	}
+
+	public List<Book> getbooks(String name) throws InvalidIdException {
+		
+	
+			Optional<?> optional =	bookRepository.getByauthor(name);
+			if(!optional.isPresent())
+				throw new InvalidIdException("no books avaliable");
+			
+			return  (List<Book>) optional.get();
+	}
+
 	
 }
