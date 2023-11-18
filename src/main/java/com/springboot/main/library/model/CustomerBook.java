@@ -21,9 +21,11 @@ public class CustomerBook {
 	private LocalDate issueDate;
 	private int noOfWeeks;
 	private double amount;
+	
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -62,5 +64,6 @@ public class CustomerBook {
 		return "CustomerBook [id=" + id + ", customer=" + customer + ", book=" + book + ", issueDate=" + issueDate
 				+ ", noOfWeeks=" + noOfWeeks + ", amount=" + amount + "]";
 	}
+	
 	
 }

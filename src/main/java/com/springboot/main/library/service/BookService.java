@@ -81,5 +81,18 @@ public class BookService {
 			return  (List<Book>) optional.get();
 	}
 
+	/*public Book getStatus(String status) {
+		
+		return bookRepository.getStatus(status);
+	}*/
+
+	/*public List<Book> getbookByStatus(int bid, Object status) {
+		// TODO Auto-generated method stub
+		return bookRepository.getbookByStatus(status);
+	}
+	*/
+
+	
+
 	
 }

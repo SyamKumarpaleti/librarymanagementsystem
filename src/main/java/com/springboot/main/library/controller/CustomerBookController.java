@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.main.library.dto.CustomerBookDto;
 import com.springboot.main.library.exception.InvalidIdException;
+import com.springboot.main.library.model.Admin;
 import com.springboot.main.library.model.Book;
 import com.springboot.main.library.model.Customer;
 import com.springboot.main.library.model.CustomerBook;
@@ -124,7 +125,7 @@ public class CustomerBookController {
 			
 		}
 	}
-	
+	/*       localhost:8182/customerBook/customerid/37     */
 	@GetMapping("/customerid/{cid}")
 	public ResponseEntity<?> getbooks(@PathVariable("cid") int cid ) {
 		try {
@@ -140,13 +141,28 @@ public class CustomerBookController {
 		}
 	}
 	
+	/*
+	@GetMapping("/getstatus/{status}")
+	public Book getStatus(@PathVariable("status") String status) {
+	Book book=bookService.getStatus(status);
+	return book;
+	}
+	*/
 	
+	/*
 	
-	
-	
-	
-	
-	
+	@GetMapping("/all/{cbid}")
+	public ResponseEntity<?> getbookByStatus(@PathVariable("cbid") int cbid) {
+		try {
+			Customer customer = customerService.getOne(cbid);
+			List<Book> list= bookService.getbookByStatus(cbid);
+			return ResponseEntity.ok().body(list);
+		} catch (InvalidIdException e) {
+			return ResponseEntity.badRequest().body(e.getMessage());
+
+		}
+	}
+	*/
 	
 	
 	

@@ -117,8 +117,7 @@ public class BookController {
 				oldBook.setIsbn(newBook.getIsbn());
 			if(newBook.getBookPrice() != null)
 				oldBook.setBookPrice(newBook.getBookPrice());  
-			if(newBook.getStatus() != null)
-				oldBook.setStatus(newBook.getStatus());
+			
 			oldBook = bookService.postBook(oldBook); 
 			return ResponseEntity.ok().body(oldBook);
 
@@ -128,18 +127,6 @@ public class BookController {
 		
 }
 	
-	@GetMapping("/getbyauthor/{name}")
-	public ResponseEntity<?> getbooks(@PathVariable("name") String name) {
-		
-	try {
-		List<Book> book = bookService.getbooks(name); 
-		return ResponseEntity.ok().body(book);
-
-	}
-	catch (InvalidIdException e) {
-		return ResponseEntity.badRequest().body(e.getMessage());
-	}
-		
-	}
+	
 	
 }

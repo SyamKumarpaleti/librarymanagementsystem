@@ -17,5 +17,8 @@ public interface CustomerBookRepository extends JpaRepository<CustomerBook, Inte
 
 	@Query("select cb from CustomerBook cb where cb.customer.id=?1")
 	List<?> getbooks(int cid);
+
+	
+	
 	
 }
