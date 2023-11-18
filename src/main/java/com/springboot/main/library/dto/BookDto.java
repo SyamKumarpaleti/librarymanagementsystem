@@ -6,7 +6,7 @@ public class BookDto {
 	private String category;
 	private String numberOfCopies;
 	private String isbn;
-	private String bookPrice;
+	private double bookPrice;
 	private String status;
 	public String getIsbn() {
 		return isbn;
@@ -15,10 +15,11 @@ public class BookDto {
 		this.isbn = isbn;
 	}
 	
-	public String getBookPrice() {
+	
+	public double getBookPrice() {
 		return bookPrice;
 	}
-	public void setBookPrice(String bookPrice) {
+	public void setBookPrice(double bookPrice) {
 		this.bookPrice = bookPrice;
 	}
 	public String getBookTitle() {
@@ -56,6 +57,7 @@ public class BookDto {
 		return "BookDto [bookTitle=" + bookTitle + ", author=" + author + ", category=" + category + ", numberOfCopies="
 				+ numberOfCopies + ", isbn=" + isbn + ", bookPrice=" + bookPrice + ", status=" + status + "]";
 	}
+	
 	
 	
 	
