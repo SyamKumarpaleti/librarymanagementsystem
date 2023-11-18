@@ -10,7 +10,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "orderTable")
 public class CustomerBook {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

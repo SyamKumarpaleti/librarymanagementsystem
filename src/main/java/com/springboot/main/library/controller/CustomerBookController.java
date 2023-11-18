@@ -1,16 +1,23 @@
 package com.springboot.main.library.controller;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springboot.main.library.dto.CustomerBookDto;
 import com.springboot.main.library.exception.InvalidIdException;
 import com.springboot.main.library.model.Book;
+import com.springboot.main.library.model.Customer;
 import com.springboot.main.library.model.CustomerBook;
 import com.springboot.main.library.service.BookService;
 import com.springboot.main.library.service.CustomerBookService;
@@ -26,10 +33,50 @@ public class CustomerBookController {
 	@Autowired
 	private CustomerBookService customerBookService;
 	
-	/*@PostMapping("/book/customer/{bid}/{cid}")*/
-	@PostMapping("/{customerId}/{bookId}")
-    public ResponseEntity<CustomerBook> borrowBook(@PathVariable("id") int id, @PathVariable("bid") int bid, int noOfWeeks, double amount) throws InvalidIdException {
-        // Check if the book is available
+	@PostMapping("/{cid}")
+	//@PostMapping("/{customerId}/{bookId}")
+    public ResponseEntity<?> borrowBook(@PathVariable("cid") int cid, @RequestBody List<CustomerBookDto> customerBookDtoList) throws InvalidIdException {
+     
+		try {
+			
+			Customer customer= customerService.getOne(cid);
+			List<CustomerBook> bookstaken = new ArrayList<>();
+			for(CustomerBookDto customerBookDto : customerBookDtoList)
+			{
+				String isbn = customerBookDto.getIsbn();
+				Book book = bookService.getBook(isbn);
+				CustomerBook customerBook = new CustomerBook();
+				customerBook.setCustomer(customer);
+				customerBook.setBook(book);
+				customerBook.setIssueDate(LocalDate.now());
+				customerBook.setAmount(0);
+				customerBook.setNoOfWeeks(customerBookDto.getNoOfWeeks());
+			    customerBook=customerBookService.save(customerBook);
+				 bookstaken.add(customerBook);
+				
+			}
+			 return ResponseEntity.ok().body(bookstaken);
+		}catch (InvalidIdException e) {
+			
+		return ResponseEntity.badRequest().body(e.getMessage());
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*  // Check if the book is available
 		Book book=null;
 		try {
 			book = bookService.getOne(bid);
@@ -40,7 +87,7 @@ public class CustomerBookController {
         if (!book.getStatus().equals("available")) {
             throw new InvalidIdException("book Not Available");
         }
-
+        
         // Create a new BorrowedBook record
         CustomerBook customerBook = new CustomerBook();
         customerBook.setCustomer(customerService.getOne(id));
@@ -55,9 +102,52 @@ public class CustomerBookController {
         bookService.save(book);
 
         // Save the BorrowedBook record
-        customerBookService.save(customerBook);
+        customerBookService.save(customerBook);*/
 
-        return ResponseEntity.ok(customerBook);
+        
     }
+	//@PutMapping("/amount/{cbid}")
 
+	
+	
+	@GetMapping("/bookid/{bid}")
+	public ResponseEntity<?> getcustomers(@PathVariable("bid") int bid ) {
+		try {
+			Book book = bookService.getOne(bid);
+			
+		return ResponseEntity.ok().body(customerBookService.getcustomers(bid));
+			
+		}
+		catch (InvalidIdException e) {
+			
+			return ResponseEntity.badRequest().body(e.getMessage());
+			
+		}
+	}
+	
+	@GetMapping("/customerid/{cid}")
+	public ResponseEntity<?> getbooks(@PathVariable("cid") int cid ) {
+		try {
+			Customer customer = customerService.getOne(cid);
+			
+		return ResponseEntity.ok().body(customerBookService.getbooks(cid));
+			
+		}
+		catch (InvalidIdException e) {
+			
+			return ResponseEntity.badRequest().body(e.getMessage());
+			
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
