@@ -112,11 +112,13 @@ public class BookController {
 			if(newBook.getBookTitle() != null)
 				oldBook.setBookTitle(newBook.getBookTitle());
 			if(newBook.getNumberOfCopies() != null)
-				oldBook.setNoOfCopies(newBook.getNumberOfCopies());
+				oldBook.setNumberOfCopies(newBook.getNumberOfCopies());
+
 			if(newBook.getIsbn() != null)
 				oldBook.setIsbn(newBook.getIsbn());
-			if(newBook.getBookPrice() != null)
-				oldBook.setBookPrice(newBook.getBookPrice());  
+			if(newBook.getBookPrice() != 0)
+				oldBook.setBookPrice(newBook.getBookPrice());
+			 
 			if(newBook.getStatus() != null)
 				oldBook.setStatus(newBook.getStatus());
 			oldBook = bookService.postBook(oldBook); 
