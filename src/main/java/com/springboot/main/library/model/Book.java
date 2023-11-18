@@ -1,13 +1,10 @@
 package com.springboot.main.library.model;
 
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
 
 @Entity
 public class Book {
@@ -18,16 +15,10 @@ public class Book {
 	private String author;
 	private String category;
 	private String isbn;
-<<<<<<< HEAD
-	private String bookPrice;
-	private String noOfCopies;
-	
-=======
+
 	private double bookPrice;
 	private String numberOfCopies;
-	private String status;
->>>>>>> 64d3a6740d164df4ff09038b14e9761a600dd5fd
-	
+
 	@ManyToOne
 	private Admin admin;
 
@@ -79,7 +70,6 @@ public class Book {
 		this.bookPrice = bookPrice;
 	}
 
-	
 	public String getNumberOfCopies() {
 		return numberOfCopies;
 	}
@@ -87,8 +77,6 @@ public class Book {
 	public void setNumberOfCopies(String numberOfCopies) {
 		this.numberOfCopies = numberOfCopies;
 	}
-
-	
 
 	public Admin getAdmin() {
 		return admin;
@@ -101,15 +89,8 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", author=" + author + ", category=" + category
-<<<<<<< HEAD
-				+ ", isbn=" + isbn + ", bookPrice=" + bookPrice + ", noOfCopies=" + noOfCopies 
-				+ ", admin=" + admin + "]";
-=======
-				+ ", isbn=" + isbn + ", bookPrice=" + bookPrice + ", numberOfCopies=" + numberOfCopies + ", status="
-				+ status + ", admin=" + admin + "]";
->>>>>>> 64d3a6740d164df4ff09038b14e9761a600dd5fd
+				+ ", isbn=" + isbn + ", bookPrice=" + bookPrice + ", numberOfCopies=" + numberOfCopies + ", admin="
+				+ admin + "]";
 	}
 
-	
-	
 }
