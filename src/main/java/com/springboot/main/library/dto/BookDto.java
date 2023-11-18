@@ -6,8 +6,13 @@ public class BookDto {
 	private String category;
 	private String numberOfCopies;
 	private String isbn;
+<<<<<<< HEAD
 	private String bookPrice;
 	
+=======
+	private double bookPrice;
+	private String status;
+>>>>>>> 64d3a6740d164df4ff09038b14e9761a600dd5fd
 	public String getIsbn() {
 		return isbn;
 	}
@@ -15,10 +20,11 @@ public class BookDto {
 		this.isbn = isbn;
 	}
 	
-	public String getBookPrice() {
+	
+	public double getBookPrice() {
 		return bookPrice;
 	}
-	public void setBookPrice(String bookPrice) {
+	public void setBookPrice(double bookPrice) {
 		this.bookPrice = bookPrice;
 	}
 	public String getBookTitle() {
@@ -55,6 +61,9 @@ public class BookDto {
 	
 	
 	
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 64d3a6740d164df4ff09038b14e9761a600dd5fd
 
 }

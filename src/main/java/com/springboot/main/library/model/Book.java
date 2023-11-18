@@ -18,9 +18,15 @@ public class Book {
 	private String author;
 	private String category;
 	private String isbn;
+<<<<<<< HEAD
 	private String bookPrice;
 	private String noOfCopies;
 	
+=======
+	private double bookPrice;
+	private String numberOfCopies;
+	private String status;
+>>>>>>> 64d3a6740d164df4ff09038b14e9761a600dd5fd
 	
 	@ManyToOne
 	private Admin admin;
@@ -65,20 +71,21 @@ public class Book {
 		this.isbn = isbn;
 	}
 
-	public String getBookPrice() {
+	public double getBookPrice() {
 		return bookPrice;
 	}
 
-	public void setBookPrice(String bookPrice) {
+	public void setBookPrice(double bookPrice) {
 		this.bookPrice = bookPrice;
 	}
 
-	public String getNoOfCopies() {
-		return noOfCopies;
+	
+	public String getNumberOfCopies() {
+		return numberOfCopies;
 	}
 
-	public void setNoOfCopies(String noOfCopies) {
-		this.noOfCopies = noOfCopies;
+	public void setNumberOfCopies(String numberOfCopies) {
+		this.numberOfCopies = numberOfCopies;
 	}
 
 	
@@ -94,9 +101,15 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", author=" + author + ", category=" + category
+<<<<<<< HEAD
 				+ ", isbn=" + isbn + ", bookPrice=" + bookPrice + ", noOfCopies=" + noOfCopies 
 				+ ", admin=" + admin + "]";
+=======
+				+ ", isbn=" + isbn + ", bookPrice=" + bookPrice + ", numberOfCopies=" + numberOfCopies + ", status="
+				+ status + ", admin=" + admin + "]";
+>>>>>>> 64d3a6740d164df4ff09038b14e9761a600dd5fd
 	}
 
+	
 	
 }
