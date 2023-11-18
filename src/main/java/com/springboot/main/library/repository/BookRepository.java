@@ -28,6 +28,19 @@ public interface BookRepository extends JpaRepository<Book, Integer>{
     
 	@Query("select b from Book b where b.author=?1 ")
 	Optional<?> getByauthor(String name);
+
+	
+	/*
+	@Query("select b from Book b where b.status=borrowed")
+	Book getStatus(String status);
+	*/
+	
+	
+	/*
+	 @Query("select b from Book b where b.status=borrowed")
+	
+	List<Book> getbookByStatus(Object status);
+	 */
 	
    /* @Query(value = "select * from book where book_title=?1",nativeQuery = true)
 	Customer findBookTitle(String bookTitle);*/

@@ -36,6 +36,7 @@ public class CustomerBookService {
 		return customerBookRepository.getbooks(cid);
 	}
 
+
 	public double amount(int bid, int noOfWeeks, double bookPrice) throws InvalidIdException {
 		Optional<Book> optional = bookRepository.findById(bid);
 	    if (!optional.isPresent())
@@ -59,6 +60,6 @@ public class CustomerBookService {
 	}
 
 	
-	
+
 
 }
