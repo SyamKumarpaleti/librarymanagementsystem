@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springboot.main.library.dto.BookDto;
 import com.springboot.main.library.dto.CustomerBookDto;
 import com.springboot.main.library.exception.InvalidIdException;
 import com.springboot.main.library.model.Book;
@@ -33,11 +34,11 @@ public class CustomerBookController {
 	@Autowired
 	private CustomerBookService customerBookService;
 	
-	@PostMapping("/{cid}")
+	@PostMapping("/{cid}/{bid}")
 	//@PostMapping("/{customerId}/{bookId}")
-    public ResponseEntity<?> borrowBook(@PathVariable("cid") int cid, @RequestBody List<CustomerBookDto> customerBookDtoList) throws InvalidIdException {
+    public void borrowBook(@PathVariable("cid") int cid,@PathVariable("bid") int bid, @RequestBody List<CustomerBookDto> customerBookDtoList, double amount) throws InvalidIdException {
      
-		try {
+		/*try {
 			
 			Customer customer= customerService.getOne(cid);
 			List<CustomerBook> bookstaken = new ArrayList<>();
@@ -49,7 +50,7 @@ public class CustomerBookController {
 				customerBook.setCustomer(customer);
 				customerBook.setBook(book);
 				customerBook.setIssueDate(LocalDate.now());
-				customerBook.setAmount(0);
+				customerBook.setAmount(amount=customerBookService.amount(bid,customerBookDto.getNoOfWeeks(),BookDto.getBookPrice()));
 				customerBook.setNoOfWeeks(customerBookDto.getNoOfWeeks());
 			    customerBook=customerBookService.save(customerBook);
 				 bookstaken.add(customerBook);
@@ -60,7 +61,7 @@ public class CustomerBookController {
 			
 		return ResponseEntity.badRequest().body(e.getMessage());
 			
-		}
+		}*/
 		
 		
 		
@@ -76,7 +77,7 @@ public class CustomerBookController {
 		
 		
 		
-		/*  // Check if the book is available
+		 // Check if the book is available
 		Book book=null;
 		try {
 			book = bookService.getOne(bid);
@@ -84,26 +85,27 @@ public class CustomerBookController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        if (!book.getStatus().equals("available")) {
+        if (!book.getStatus().equals(" Not Available")) {
             throw new InvalidIdException("book Not Available");
         }
-        
+        for(CustomerBookDto customerBookDto : customerBookDtoList)
+		{
         // Create a new BorrowedBook record
         CustomerBook customerBook = new CustomerBook();
-        customerBook.setCustomer(customerService.getOne(id));
+        customerBook.setCustomer(customerService.getOne(cid));
         customerBook.setBook(book);
         customerBook.setIssueDate(LocalDate.now());
-        customerBook.setNoOfWeeks(noOfWeeks);
-        customerBook.setAmount(amount);
+        customerBook.setNoOfWeeks(customerBookDto.getNoOfWeeks());
+        customerBook.setAmount(amount=customerBookService.amount(bid,customerBookDto.getNoOfWeeks(),BookDto.getBookPrice()));
       
-
+		
         // Update the book status to borrowed
         book.setStatus("borrowed");
         bookService.save(book);
 
         // Save the BorrowedBook record
-        customerBookService.save(customerBook);*/
-
+        customerBookService.save(customerBook);
+		}
         
     }
 	//@PutMapping("/amount/{cbid}")
@@ -138,16 +140,5 @@ public class CustomerBookController {
 			return ResponseEntity.badRequest().body(e.getMessage());
 			
 		}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }

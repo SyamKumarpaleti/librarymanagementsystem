@@ -6,7 +6,7 @@ public class BookDto {
 	private String category;
 	private String numberOfCopies;
 	private String isbn;
-	private double bookPrice;
+	private static double bookPrice;
 	private String status;
 	public String getIsbn() {
 		return isbn;
@@ -16,7 +16,7 @@ public class BookDto {
 	}
 	
 	
-	public double getBookPrice() {
+	public static double getBookPrice() {
 		return bookPrice;
 	}
 	public void setBookPrice(double bookPrice) {
