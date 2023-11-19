@@ -21,7 +21,7 @@ public class Book {
 
 	
 	private double bookPrice;
-	private String numberOfCopies;
+	private String noOfCopies;
 	
 	@ManyToOne
 	private Admin admin;
@@ -75,15 +75,16 @@ public class Book {
 	}
 
 	
-	public String getNumberOfCopies() {
-		return numberOfCopies;
-	}
-
-	public void setNumberOfCopies(String numberOfCopies) {
-		this.numberOfCopies = numberOfCopies;
-	}
-
 	
+	
+
+	public String getNoOfCopies() {
+		return noOfCopies;
+	}
+
+	public void setNoOfCopies(String noOfCopies) {
+		this.noOfCopies = noOfCopies;
+	}
 
 	public Admin getAdmin() {
 		return admin;

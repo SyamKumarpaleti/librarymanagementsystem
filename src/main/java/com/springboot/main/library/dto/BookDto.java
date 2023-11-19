@@ -4,15 +4,10 @@ public class BookDto {
 	private String bookTitle;
 	private String author;
 	private String category;
-	private String numberOfCopies;
+	private String noOfCopies;
 	private String isbn;
 
-	private static double bookPrice;
-
-	
-
-	private String status;
-
+	private  double bookPrice;
 	public String getIsbn() {
 		return isbn;
 	}
@@ -21,7 +16,7 @@ public class BookDto {
 	}
 	
 	
-	public static double getBookPrice() {
+	public  double getBookPrice() {
 		return bookPrice;
 	}
 	public void setBookPrice(double bookPrice) {
@@ -45,21 +40,18 @@ public class BookDto {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public String getNumberOfCopies() {
-		return numberOfCopies;
+	
+	public String getNoOfCopies() {
+		return noOfCopies;
 	}
-	public void setNumberOfCopies(String numberOfCopies) {
-		this.numberOfCopies = numberOfCopies;
+	public void setNoOfCopies(String noOfCopies) {
+		this.noOfCopies = noOfCopies;
 	}
 	@Override
 	public String toString() {
-		return "BookDto [bookTitle=" + bookTitle + ", author=" + author + ", category=" + category + ", numberOfCopies="
-				+ numberOfCopies + ", isbn=" + isbn + ", bookPrice=" + bookPrice + "]";
+		return "BookDto [bookTitle=" + bookTitle + ", author=" + author + ", category=" + category + ", noOfCopies="
+				+ noOfCopies + ", isbn=" + isbn + ", bookPrice=" + bookPrice + "]";
 	}
-	
-	
-	
-	
 	
 
 

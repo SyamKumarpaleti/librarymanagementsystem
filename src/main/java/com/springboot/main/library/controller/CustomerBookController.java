@@ -1,6 +1,7 @@
 package com.springboot.main.library.controller;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.springboot.main.library.dto.BookDto;
 import com.springboot.main.library.dto.CustomerBookDto;
 import com.springboot.main.library.exception.InvalidIdException;
-import com.springboot.main.library.model.Admin;
+
 import com.springboot.main.library.model.Book;
 import com.springboot.main.library.model.Customer;
 import com.springboot.main.library.model.CustomerBook;
@@ -35,84 +36,43 @@ public class CustomerBookController {
 	@Autowired
 	private CustomerBookService customerBookService;
 	
-	@PostMapping("/{cid}/{bid}")
+	@PostMapping("/{id}/{bid}")
 	//@PostMapping("/{customerId}/{bookId}")
-    public void borrowBook(@PathVariable("cid") int cid,@PathVariable("bid") int bid, @RequestBody List<CustomerBookDto> customerBookDtoList, double amount) throws InvalidIdException {
+    public ResponseEntity<?> createCustomerBook(@PathVariable("id") int id,@PathVariable("bid") int bid, @RequestBody CustomerBook customerBook)  {
      
-		/*try {
-			
-			Customer customer= customerService.getOne(cid);
-			List<CustomerBook> bookstaken = new ArrayList<>();
-			for(CustomerBookDto customerBookDto : customerBookDtoList)
-			{
-				String isbn = customerBookDto.getIsbn();
-				Book book = bookService.getBook(isbn);
-				CustomerBook customerBook = new CustomerBook();
-				customerBook.setCustomer(customer);
-				customerBook.setBook(book);
-				customerBook.setIssueDate(LocalDate.now());
-				customerBook.setAmount(amount=customerBookService.amount(bid,customerBookDto.getNoOfWeeks(),BookDto.getBookPrice()));
-				customerBook.setNoOfWeeks(customerBookDto.getNoOfWeeks());
-			    customerBook=customerBookService.save(customerBook);
-				 bookstaken.add(customerBook);
-				
-			}
-			 return ResponseEntity.ok().body(bookstaken);
-		}catch (InvalidIdException e) {
-			
-		return ResponseEntity.badRequest().body(e.getMessage());
-			
-		}*/
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/*
-		
-		
-		 // Check if the book is available
-		Book book=null;
 		try {
-			book = bookService.getOne(bid);
+			Customer customer = customerService.getOne(id);
+			Book book=bookService.getOne(bid);
+			customerBook. setCustomer(customer) ;
+			customerBook. setBook(book);
+			
+			LocalDate issueDate=customerBook.getIssueDate();
+			LocalDate returnDate=customerBook.getReturnDate();
+			
+			long days = ChronoUnit.DAYS.between(issueDate, returnDate);
+			
+	        double amount = days * 0.2;
+	        
+	
+			customerBook. setAmount(amount);
+			
+			 customerBook=customerBookService.createCustomerBook(customerBook);
+			 return ResponseEntity.ok().body(customerBook);
+			
 		} catch (InvalidIdException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return ResponseEntity.badRequest().body(e.getMessage());
 		}
-        if (!book.getStatus().equals(" Not Available")) {
-            throw new InvalidIdException("book Not Available");
-        }
-        for(CustomerBookDto customerBookDto : customerBookDtoList)
-		{
-        // Create a new BorrowedBook record
-        CustomerBook customerBook = new CustomerBook();
-        customerBook.setCustomer(customerService.getOne(cid));
-        customerBook.setBook(book);
-        customerBook.setIssueDate(LocalDate.now());
-        customerBook.setNoOfWeeks(customerBookDto.getNoOfWeeks());
-        customerBook.setAmount(amount=customerBookService.amount(bid,customerBookDto.getNoOfWeeks(),BookDto.getBookPrice()));
-      
 		
-        // Update the book status to borrowed
-        book.setStatus("borrowed");
-        bookService.save(book);
-
-        // Save the BorrowedBook record
-        customerBookService.save(customerBook);
 		}
-        
-    }*/
-	//@PutMapping("/amount/{cbid}")
-
-	}
-	
+		
+		/* localhost:8182/customerBook/30/7
+		 * 
+		 *  {
+  "issueDate": "2023-10-04",
+  "returnDate": "2023-10-18"
+}*/
 	@GetMapping("/bookid/{bid}")
 	public ResponseEntity<?> getcustomers(@PathVariable("bid") int bid ) {
 		try {

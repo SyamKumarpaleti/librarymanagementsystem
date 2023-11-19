@@ -19,7 +19,7 @@ public class CustomerBook {
 	@OneToOne
 	private Book book;
 	private LocalDate issueDate;
-	private int noOfWeeks;
+	private LocalDate returnDate;;
 	private double amount;
 	
 	public int getId() {
@@ -47,23 +47,28 @@ public class CustomerBook {
 	public void setIssueDate(LocalDate issueDate) {
 		this.issueDate = issueDate;
 	}
-	public int getNoOfWeeks() {
-		return noOfWeeks;
-	}
-	public void setNoOfWeeks(int noOfWeeks) {
-		this.noOfWeeks = noOfWeeks;
-	}
+	
 	public double getAmount() {
 		return amount;
 	}
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
+
+	public LocalDate getReturnDate() {
+		return returnDate;
+	}
+
+	public void setReturnDate(LocalDate returnDate) {
+		this.returnDate = returnDate;
+	}
+
 	@Override
 	public String toString() {
 		return "CustomerBook [id=" + id + ", customer=" + customer + ", book=" + book + ", issueDate=" + issueDate
-				+ ", noOfWeeks=" + noOfWeeks + ", amount=" + amount + "]";
+				+ ", returnDate=" + returnDate + ", amount=" + amount + "]";
 	}
+	
 	
 	
 }
