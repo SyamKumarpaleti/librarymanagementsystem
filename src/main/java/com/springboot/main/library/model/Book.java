@@ -17,13 +17,12 @@ public class Book {
 	private String isbn;
 
 	private double bookPrice;
-<<<<<<< HEAD
+
 	private String noOfCopies;
 	
-=======
-	private String numberOfCopies;
 
->>>>>>> bf2e9b5ac8ce8e56b917fc0ecf445196ba7aa45b
+	
+
 	@ManyToOne
 	private Admin admin;
 
@@ -75,7 +74,7 @@ public class Book {
 		this.bookPrice = bookPrice;
 	}
 
-<<<<<<< HEAD
+
 	
 	
 	
@@ -86,14 +85,6 @@ public class Book {
 
 	public void setNoOfCopies(String noOfCopies) {
 		this.noOfCopies = noOfCopies;
-=======
-	public String getNumberOfCopies() {
-		return numberOfCopies;
-	}
-
-	public void setNumberOfCopies(String numberOfCopies) {
-		this.numberOfCopies = numberOfCopies;
->>>>>>> bf2e9b5ac8ce8e56b917fc0ecf445196ba7aa45b
 	}
 
 	public Admin getAdmin() {
@@ -107,7 +98,7 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", author=" + author + ", category=" + category
-				+ ", isbn=" + isbn + ", bookPrice=" + bookPrice + ", numberOfCopies=" + numberOfCopies + ", admin="
+				+ ", isbn=" + isbn + ", bookPrice=" + bookPrice + ",+  admin="
 				+ admin + "]";
 	}
 

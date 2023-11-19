@@ -7,12 +7,10 @@ public class BookDto {
 	private String noOfCopies;
 	private String isbn;
 
-<<<<<<< HEAD
-	private  double bookPrice;
-=======
+
 	private double bookPrice;
 
->>>>>>> bf2e9b5ac8ce8e56b917fc0ecf445196ba7aa45b
+
 	public String getIsbn() {
 		return isbn;
 	}
@@ -20,14 +18,13 @@ public class BookDto {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-<<<<<<< HEAD
+
 	
 	
-	public  double getBookPrice() {
-=======
+
 
 	public double getBookPrice() {
->>>>>>> bf2e9b5ac8ce8e56b917fc0ecf445196ba7aa45b
+
 		return bookPrice;
 	}
 
@@ -58,32 +55,21 @@ public class BookDto {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-<<<<<<< HEAD
+
 	
 	public String getNoOfCopies() {
 		return noOfCopies;
 	}
 	public void setNoOfCopies(String noOfCopies) {
 		this.noOfCopies = noOfCopies;
-=======
 
-	public String getNumberOfCopies() {
-		return numberOfCopies;
 	}
-
-	public void setNumberOfCopies(String numberOfCopies) {
-		this.numberOfCopies = numberOfCopies;
->>>>>>> bf2e9b5ac8ce8e56b917fc0ecf445196ba7aa45b
-	}
+	
 
 	@Override
 	public String toString() {
 		return "BookDto [bookTitle=" + bookTitle + ", author=" + author + ", category=" + category + ", noOfCopies="
 				+ noOfCopies + ", isbn=" + isbn + ", bookPrice=" + bookPrice + "]";
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> bf2e9b5ac8ce8e56b917fc0ecf445196ba7aa45b
 
 }
