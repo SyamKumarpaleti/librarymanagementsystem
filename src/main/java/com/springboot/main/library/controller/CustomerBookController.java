@@ -49,13 +49,23 @@ public class CustomerBookController {
 			
 			LocalDate issueDate=customerBook.getIssueDate();
 			LocalDate returnDate=customerBook.getReturnDate();
-			
+			double amount=customerBook.getBook().getBookPrice();
+			double amount1=0;
 			long days = ChronoUnit.DAYS.between(issueDate, returnDate);
-			
-	        double amount = days * 0.2;
-	        
+			if(days<=7) {
+	          amount1 +=(amount* 0.2);
+			}
+			else if(days>7 && days<=14){
+				 amount1+=(amount*0.4);
+			}
+			else if(days>14 && days<=21){
+				 amount1+=(amount*0.6);
+			}
+			else {
+				 amount1+=(amount*0.8);
+			}
 	
-			customerBook. setAmount(amount);
+			customerBook. setAmount(amount1);
 			
 			 customerBook=customerBookService.createCustomerBook(customerBook);
 			 return ResponseEntity.ok().body(customerBook);
