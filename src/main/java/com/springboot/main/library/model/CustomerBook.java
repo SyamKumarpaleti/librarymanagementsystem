@@ -19,7 +19,7 @@ public class CustomerBook {
 	@OneToOne
 	private Book book;
 	private LocalDate issueDate;
-	private LocalDate returnDate;;
+	private LocalDate returnDate;
 	private double amount;
 	
 	public int getId() {
