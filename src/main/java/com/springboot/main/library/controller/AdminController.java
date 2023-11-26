@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.springboot.main.library.dto.AdminDto;
 import com.springboot.main.library.exception.InvalidIdException;
 import com.springboot.main.library.model.Admin;
@@ -24,26 +23,25 @@ import com.springboot.main.library.model.User;
 import com.springboot.main.library.service.AdminService;
 import com.springboot.main.library.service.UserService;
 
-
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
 	@Autowired
 	private AdminService adminService;
 	@Autowired
-	private UserService userService; 
-	
+	private UserService userService;
+
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-	
+
 	@PostMapping("/add")
 	public Admin postAdmin(@RequestBody Admin admin) {
-		User user=admin.getUser();
-		String passwordPlain=user.getPassword();
-		String encodedPassword=passwordEncoder.encode(passwordPlain);
+		User user = admin.getUser();
+		String passwordPlain = user.getPassword();
+		String encodedPassword = passwordEncoder.encode(passwordPlain);
 		user.setPassword(encodedPassword);
 		user.setRole("Admin");
-		user=userService.insert(user);
+		user = userService.insert(user);
 		admin.setUser(user);
 		admin = adminService.postAdmin(admin);
 		return admin;
@@ -54,6 +52,7 @@ public class AdminController {
 	 * 
 	 * @param id - admin id
 	 */
+
 	@GetMapping("/getone/{id}")
 	public ResponseEntity<?> getOne(@PathVariable("id") int id) {
 
@@ -68,9 +67,9 @@ public class AdminController {
 	// localhost:8182/admin/getall?page=2&size=2
 
 	@GetMapping("/getall") /// admin/getall?page=0&size=10
-	public List<Admin> getAll(@RequestParam(value="page",required = false, defaultValue = "0") Integer page,
-							   @RequestParam(value="size", required = false, defaultValue = "10000000") Integer size) { // v1 v2 v3 v4 v5
-																										// : size & page
+	public List<Admin> getAll(@RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+			@RequestParam(value = "size", required = false, defaultValue = "10000000") Integer size) { // v1 v2 v3 v4 v5
+		// : size & page
 
 		Pageable pageable = PageRequest.of(page, size); // null null
 		return adminService.getAll(pageable);
@@ -78,11 +77,11 @@ public class AdminController {
 
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<?> deleteAdmin(@PathVariable("id") int id) {
-		
+
 		try {
-			//validate id
+			// validate id
 			Admin admin = adminService.getOne(id);
-			//delete
+			// delete
 			adminService.deleteAdmin(admin);
 			return ResponseEntity.ok().body("Admin Deleted Successfully");
 
@@ -91,23 +90,22 @@ public class AdminController {
 		}
 	}
 
-	@PutMapping("/update/{id}")  //:update: which record to update?   give me new value for update
-	public ResponseEntity<?> updateAdmin(@PathVariable("id") int id,
-							@RequestBody AdminDto newAdmin) {
+	@PutMapping("/update/{id}") // :update: which record to update? give me new value for update
+	public ResponseEntity<?> updateAdmin(@PathVariable("id") int id, @RequestBody AdminDto newAdmin) {
 		try {
-			//validate id
+			// validate id
 			Admin oldAdmin = adminService.getOne(id);
-			if(newAdmin.getEmail() != null)
+			if (newAdmin.getEmail() != null)
 				oldAdmin.setEmail(newAdmin.getEmail());
-			if(newAdmin.getName() != null) 
-				oldAdmin.setName(newAdmin.getName()); 
-			 
-			oldAdmin = adminService.postAdmin(oldAdmin); 
+			if (newAdmin.getName() != null)
+				oldAdmin.setName(newAdmin.getName());
+
+			oldAdmin = adminService.postAdmin(oldAdmin);
 			return ResponseEntity.ok().body(oldAdmin);
 
 		} catch (InvalidIdException e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
-		
-}
+
+	}
 }

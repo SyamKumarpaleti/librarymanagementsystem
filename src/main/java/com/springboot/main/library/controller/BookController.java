@@ -110,17 +110,12 @@ public class BookController {
 			if(newBook.getCategory() != null)
 				oldBook.setCategory(newBook.getCategory());
 
-			
-			
-
 			if(newBook.getIsbn() != null)
 				oldBook.setIsbn(newBook.getIsbn());
 
-			
 			if(newBook.getBookPrice() != 0)
 				oldBook.setBookPrice(newBook.getBookPrice());
 			 
-			
 			oldBook = bookService.postBook(oldBook); 
 			return ResponseEntity.ok().body(oldBook);
 

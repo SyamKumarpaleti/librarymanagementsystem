@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.springboot.main.library.exception.InvalidIdException;
-import com.springboot.main.library.model.Admin;
+
 import com.springboot.main.library.model.Book;
 import com.springboot.main.library.repository.BookRepository;
 @Service
@@ -59,6 +59,8 @@ public class BookService {
 		// TODO Auto-generated method stub
 		return bookRepository.findBook(id);
 	}
+	
+	
 
 	public Book save(Book book) {
 		// TODO Auto-generated method stub
@@ -71,6 +73,7 @@ public class BookService {
 		return bookRepository.getByIsbn(isbn);
 	}
 
+	/*@SuppressWarnings("unchecked")
 	public List<Book> getbooks(String name) throws InvalidIdException {
 		
 	
@@ -80,7 +83,19 @@ public class BookService {
 			
 			return  (List<Book>) optional.get();
 	}
+	*/
+	
+	public List<Book> getBooksByCategory(String category) {
+        return bookRepository.findByCategory(category);
+    }
 
+	
+	public List<Book> findByAuthor(String author) {
+		// TODO Auto-generated method stub
+		return bookRepository.findByAuthor(author);
+	}
+
+	
 	/*public Book getStatus(String status) {
 		
 		return bookRepository.getStatus(status);
