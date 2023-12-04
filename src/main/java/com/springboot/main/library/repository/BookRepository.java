@@ -27,10 +27,27 @@ public interface BookRepository extends JpaRepository<Book, Integer>{
 	@Query("select b from Book b where b.isbn=?1")
 	Book getByIsbn(String isbn);
     
-	@Query("select b from Book b where b.author=?1 ")
+	/*@Query("select b from Book b where b.author=?1 ")
 	Optional<?> getByauthor(String name);
+<<<<<<< HEAD
 	@Query("select cb.customer from CustomerBook cb where cb.book.category=?1 and cb.book.bookPrice=?1")
 	List<Customer> getCustomerByCategoryAndPrice(String category, double price);
+=======
+	*/
+	@Query("SELECT b FROM Book b WHERE b.category.id = ?1")
+    List<Book> findByCategory(int id);
+	
+	
+	
+	@Query("select b from Book b where b.author=?1")
+	List<Book> findByAuthor(String author);
+	@Query("select b from Book b")
+	List<Book> findAllCategory();
+	
+
+
+	
+>>>>>>> 7f4a34bfbac6ef898c5df5e99cbf3f0a556a2253
 
 	
 	/*

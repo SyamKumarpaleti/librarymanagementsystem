@@ -16,6 +16,15 @@ import com.springboot.main.library.repository.CustomerRepository;
 public class CustomerService {
 	@Autowired
 	private CustomerRepository customerRepository;
+<<<<<<< HEAD
+=======
+	
+	@Autowired
+    public CustomerService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+	
+>>>>>>> 7f4a34bfbac6ef898c5df5e99cbf3f0a556a2253
 	public Customer postCustomer(Customer customer) {
 		// TODO Auto-generated method stub
 		return customerRepository.save(customer);

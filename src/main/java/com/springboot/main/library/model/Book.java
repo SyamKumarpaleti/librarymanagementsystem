@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Book {
@@ -13,7 +14,7 @@ public class Book {
 	private int id;
 	private String bookTitle;
 	private String author;
-	private String category;
+	
 	private String isbn;
 
 	private double bookPrice;
@@ -25,6 +26,9 @@ public class Book {
 
 	@ManyToOne
 	private Admin admin;
+	
+	@OneToOne
+	private Category category;
 
 	public int getId() {
 		return id;
@@ -50,14 +54,6 @@ public class Book {
 		this.author = author;
 	}
 
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
 	public String getIsbn() {
 		return isbn;
 	}
@@ -73,11 +69,6 @@ public class Book {
 	public void setBookPrice(double bookPrice) {
 		this.bookPrice = bookPrice;
 	}
-
-
-	
-	
-	
 
 	public String getNoOfCopies() {
 		return noOfCopies;
@@ -95,11 +86,20 @@ public class Book {
 		this.admin = admin;
 	}
 
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", author=" + author + ", category=" + category
-				+ ", isbn=" + isbn + ", bookPrice=" + bookPrice + ",+  admin="
-				+ admin + "]";
+		return "Book [id=" + id + ", bookTitle=" + bookTitle + ", author=" + author + ", isbn=" + isbn + ", bookPrice="
+				+ bookPrice + ", noOfCopies=" + noOfCopies + ", admin=" + admin + ", category=" + category + "]";
 	}
+
+	
 
 }
