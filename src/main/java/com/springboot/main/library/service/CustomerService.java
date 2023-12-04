@@ -8,16 +8,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.springboot.main.library.exception.InvalidIdException;
-import com.springboot.main.library.model.Admin;
+
 import com.springboot.main.library.model.Customer;
-import com.springboot.main.library.repository.BookRepository;
+
 import com.springboot.main.library.repository.CustomerRepository;
 @Service
 public class CustomerService {
 	@Autowired
 	private CustomerRepository customerRepository;
-	@Autowired
-	private BookRepository bookRepository;
 	public Customer postCustomer(Customer customer) {
 		// TODO Auto-generated method stub
 		return customerRepository.save(customer);
@@ -42,9 +40,21 @@ public class CustomerService {
 		
 	}
 
+
+	   public Customer getCustomer(int id) throws InvalidIdException {
+			Optional<Customer> optional =  customerRepository.findById(id);
+			if(!optional.isPresent()){
+				throw new InvalidIdException("customer ID Invalid");
+			}
+			return optional.get();
+
+
+
 	
 
 	
+
+	   }
 
 	
 	

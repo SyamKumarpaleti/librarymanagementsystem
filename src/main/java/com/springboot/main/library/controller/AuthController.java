@@ -1,18 +1,34 @@
 package com.springboot.main.library.controller;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springboot.main.library.exception.InvalidIdException;
+import com.springboot.main.library.model.Customer;
+import com.springboot.main.library.model.CustomerBook;
 import com.springboot.main.library.model.User;
+import com.springboot.main.library.service.BookService;
+import com.springboot.main.library.service.CustomerBookService;
+import com.springboot.main.library.service.CustomerService;
 import com.springboot.main.library.service.UserService;
 
 @RestController
 public class AuthController {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private BookService bookService;
+	@Autowired
+	private CustomerService customerService;
+	@Autowired
+	private CustomerBookService customerBookService;
+	
 
 	@GetMapping("/user/login")
 	public User login(Principal principal) {
@@ -21,5 +37,25 @@ public class AuthController {
 		return user;
 
 	}
-
+	
+	//display the books that have been burrowed by given  customer id from start_date to end_date. take id as path variable. 
+   @GetMapping("/customerbook/{id}")
+   public ResponseEntity<?> getCustomerBook(@PathVariable("id") int id)  {
+	   try {
+		Customer customer=customerService.getCustomer(id);
+		  List<CustomerBook> list=customerBookService.getCutomerBooks(id);
+		  return ResponseEntity.ok().body(list);
+	} catch (InvalidIdException e) {
+		// TODO Auto-generated catch block
+		return ResponseEntity.badRequest().body(e.getMessage());
+		}
+	   
+   }
+   //Display all Customers that have borrowed books belonging to category=FICTION and having price less than INR. 1000
+  @GetMapping("/bookcustomer/{catgeory}/{price}")
+   public ResponseEntity<?> getCustomer(@PathVariable("category") String category,@PathVariable("price") double price) {
+	  List<Customer> list=bookService.getCustomerByCategoryAndPrice(category,price);
+	 return ResponseEntity.ok().body(list);
+   }
+   
 }

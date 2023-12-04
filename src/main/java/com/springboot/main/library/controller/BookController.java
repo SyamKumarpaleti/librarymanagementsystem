@@ -22,6 +22,7 @@ import com.springboot.main.library.dto.BookDto;
 import com.springboot.main.library.exception.InvalidIdException;
 import com.springboot.main.library.model.Admin;
 import com.springboot.main.library.model.Book;
+import com.springboot.main.library.model.Customer;
 import com.springboot.main.library.service.AdminService;
 import com.springboot.main.library.service.BookService;
 
@@ -109,18 +110,10 @@ public class BookController {
 				oldBook.setAuthor(newBook.getAuthor());
 			if(newBook.getCategory() != null)
 				oldBook.setCategory(newBook.getCategory());
-
-			
-			
-
 			if(newBook.getIsbn() != null)
 				oldBook.setIsbn(newBook.getIsbn());
-
-			
 			if(newBook.getBookPrice() != 0)
 				oldBook.setBookPrice(newBook.getBookPrice());
-			 
-			
 			oldBook = bookService.postBook(oldBook); 
 			return ResponseEntity.ok().body(oldBook);
 
@@ -129,6 +122,8 @@ public class BookController {
 		}
 		
 }
+	
+
 	
 	
 	

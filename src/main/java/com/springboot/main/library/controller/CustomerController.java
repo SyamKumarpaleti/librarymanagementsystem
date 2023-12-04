@@ -49,6 +49,7 @@ public class CustomerController {
 	     
 	     user =userService.insert(user);
 	     customer.setUser(user);
+	     
 	return	customerService.postCustomer(customer);
 		
 	}
@@ -107,7 +108,6 @@ public class CustomerController {
 	return book;
 
 	}
-	
 	
 	
 	

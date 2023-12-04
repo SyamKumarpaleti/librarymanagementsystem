@@ -113,33 +113,12 @@ public class CustomerBookController {
 		}
 
 	}	
-
-	
-	
-	/*
-	@GetMapping("/getstatus/{status}")
-	public Book getStatus(@PathVariable("status") String status) {
-	Book book=bookService.getStatus(status);
-	return book;
+	@GetMapping("/{id}/{issueDate}/{returnDate}")
+	public ResponseEntity<?> getCustomerBooks(@PathVariable("id") int cid, @PathVariable("issueDate") String issueDate, @PathVariable("returnDate") String returnDate) {
+		List<CustomerBook> customerBooks = customerBookService.getCustomerBooksByCustomerId(cid, LocalDate.parse(issueDate), LocalDate.parse(returnDate));
+		
+		return ResponseEntity.ok().body(customerBooks);
 	}
-	*/
-	
-	/*
-	
-	@GetMapping("/all/{cbid}")
-	public ResponseEntity<?> getbookByStatus(@PathVariable("cbid") int cbid) {
-		try {
-			Customer customer = customerService.getOne(cbid);
-			List<Book> list= bookService.getbookByStatus(cbid);
-			return ResponseEntity.ok().body(list);
-		} catch (InvalidIdException e) {
-			return ResponseEntity.badRequest().body(e.getMessage());
-
-		}
-	}
-	
-	*/
-	
 	
 	
 }

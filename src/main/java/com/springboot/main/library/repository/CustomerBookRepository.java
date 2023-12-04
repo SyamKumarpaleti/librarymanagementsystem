@@ -2,6 +2,7 @@ package com.springboot.main.library.repository;
 
 
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,6 +19,15 @@ public interface CustomerBookRepository extends JpaRepository<CustomerBook, Inte
 
 	@Query("select cb from CustomerBook cb where cb.customer.id=?1")
 	List<?> getbooks(int cid);
+	@Query("select cb from CustomerBook cb where cb.book.id=?1")
+	List<CustomerBook> findCustomerBooks(int id);
+	@Query("select cb from CustomerBook cb where cb.customer.id=?1 and issue_date=?1 and return_date=?1")
+	List<CustomerBook> getCustomerBooksByCustomerId(int cid, LocalDate issueDate, LocalDate returnDate);
+	
+  
+	
+
+	
 
 	
 	

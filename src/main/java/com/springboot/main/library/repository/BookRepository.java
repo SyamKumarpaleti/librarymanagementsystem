@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.springboot.main.library.model.Book;
 import com.springboot.main.library.model.Customer;
+import com.springboot.main.library.model.CustomerBook;
 
 public interface BookRepository extends JpaRepository<Book, Integer>{
 
@@ -28,6 +29,8 @@ public interface BookRepository extends JpaRepository<Book, Integer>{
     
 	@Query("select b from Book b where b.author=?1 ")
 	Optional<?> getByauthor(String name);
+	@Query("select cb.customer from CustomerBook cb where cb.book.category=?1 and cb.book.bookPrice=?1")
+	List<Customer> getCustomerByCategoryAndPrice(String category, double price);
 
 	
 	/*

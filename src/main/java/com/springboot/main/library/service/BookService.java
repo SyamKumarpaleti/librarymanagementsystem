@@ -10,11 +10,14 @@ import org.springframework.stereotype.Service;
 import com.springboot.main.library.exception.InvalidIdException;
 import com.springboot.main.library.model.Admin;
 import com.springboot.main.library.model.Book;
+import com.springboot.main.library.model.Customer;
+import com.springboot.main.library.model.CustomerBook;
 import com.springboot.main.library.repository.BookRepository;
 @Service
 public class BookService {
 	@Autowired
 	private BookRepository bookRepository;
+	
 
 	public Book postBook(Book book) {
 		// TODO Auto-generated method stub
@@ -80,6 +83,18 @@ public class BookService {
 			
 			return  (List<Book>) optional.get();
 	}
+
+	public List<Customer> getCustomerByCategoryAndPrice(String category, double price) {
+		// TODO Auto-generated method stub
+		return bookRepository.getCustomerByCategoryAndPrice(category,price);
+	}
+
+	
+
+	/*public List<Book> getBookOne(String bookTitle) {
+		// TODO Auto-generated method stub
+		return bookRepository.findBookTitle(bookTitle);
+	}*/
 
 	/*public Book getStatus(String status) {
 		

@@ -44,6 +44,23 @@ public class CustomerBookService {
 		return customerBookRepository.save(customerBook);
 	}
 
+	public List<CustomerBook> getCutomerBooks(int id) {
+		// TODO Auto-generated method stub
+		return customerBookRepository.findCustomerBooks(id);
+	}
+
+	public List<CustomerBook> getCustomerBooksByCustomerId(int cid, LocalDate issueDate, LocalDate returnDate) {
+		// TODO Auto-generated method stub
+		return  customerBookRepository.getCustomerBooksByCustomerId(cid, issueDate, returnDate);
+	}
+
+	
+
+	
+	
+
+	
+
 	
 
 }
