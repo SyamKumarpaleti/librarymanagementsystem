@@ -44,7 +44,7 @@ public class CustomerBookService {
 		return customerBookRepository.save(customerBook);
 	}
 
-<<<<<<< HEAD
+
 	public List<CustomerBook> getCutomerBooks(int id) {
 		// TODO Auto-generated method stub
 		return customerBookRepository.findCustomerBooks(id);
@@ -62,13 +62,11 @@ public class CustomerBookService {
 
 	
 
-=======
+
 	public List<CustomerBook> getcustomersBybookid(int id) {
 		
 		return customerBookRepository.findCustomers(id);
 	}
 
->>>>>>> 7f4a34bfbac6ef898c5df5e99cbf3f0a556a2253
-	
 
 }

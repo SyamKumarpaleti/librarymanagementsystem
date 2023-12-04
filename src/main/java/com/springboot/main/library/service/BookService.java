@@ -92,7 +92,7 @@ public class BookService {
         return bookRepository.findByCategory(id);
     }
 
-<<<<<<< HEAD
+
 	public List<Customer> getCustomerByCategoryAndPrice(String category, double price) {
 		// TODO Auto-generated method stub
 		return bookRepository.getCustomerByCategoryAndPrice(category,price);
@@ -105,7 +105,7 @@ public class BookService {
 		return bookRepository.findBookTitle(bookTitle);
 	}*/
 
-=======
+
 	
 	public List<Book> findByAuthor(String author) {
 		// TODO Auto-generated method stub
@@ -118,7 +118,7 @@ public class BookService {
 	}
 
 	
->>>>>>> 7f4a34bfbac6ef898c5df5e99cbf3f0a556a2253
+
 	/*public Book getStatus(String status) {
 		
 		return bookRepository.getStatus(status);

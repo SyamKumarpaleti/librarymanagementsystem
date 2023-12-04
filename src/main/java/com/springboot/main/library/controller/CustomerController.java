@@ -49,7 +49,7 @@ public class CustomerController {
 		String passwordPlain = user.getPassword();
 		String encodedPassword = passwordEncoder.encode(passwordPlain);
 		user.setPassword(encodedPassword);
-<<<<<<< HEAD
+
 	     user.setRole("CUSTOMER");
 	     
 	     user =userService.insert(user);
@@ -57,14 +57,9 @@ public class CustomerController {
 	     
 	return	customerService.postCustomer(customer);
 		
-=======
-		user.setRole("CUSTOMER");
+		
 
-		user = userService.insert(user);
-		customer.setUser(user);
-		return customerService.postCustomer(customer);
 
->>>>>>> 7f4a34bfbac6ef898c5df5e99cbf3f0a556a2253
 	}
 
 	/* Get customer */
@@ -140,14 +135,13 @@ public class CustomerController {
 		return bookService.getAllCategory();
 	}
 	
-<<<<<<< HEAD
-=======
+
 	@GetMapping("/getauthor/{author}")
 	public List<Book> getByAuthor(@PathVariable("author") String author){
 		
 		return bookService.findByAuthor(author);
 		
 	}
->>>>>>> 7f4a34bfbac6ef898c5df5e99cbf3f0a556a2253
+
 	
 }
