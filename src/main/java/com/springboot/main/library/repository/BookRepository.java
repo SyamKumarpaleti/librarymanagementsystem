@@ -29,13 +29,15 @@ public interface BookRepository extends JpaRepository<Book, Integer>{
 	/*@Query("select b from Book b where b.author=?1 ")
 	Optional<?> getByauthor(String name);
 	*/
-	@Query("SELECT b FROM Book b WHERE b.category = ?1")
-    List<Book> findByCategory(String category);
+	@Query("SELECT b FROM Book b WHERE b.category.id = ?1")
+    List<Book> findByCategory(int id);
 	
 	
 	
 	@Query("select b from Book b where b.author=?1")
 	List<Book> findByAuthor(String author);
+	@Query("select b from Book b")
+	List<Book> findAllCategory();
 	
 
 

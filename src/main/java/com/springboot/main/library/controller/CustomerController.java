@@ -7,6 +7,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,9 @@ import com.springboot.main.library.service.BookService;
 import com.springboot.main.library.service.CustomerService;
 import com.springboot.main.library.service.UserService;
 
+
+
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
@@ -117,9 +121,13 @@ public class CustomerController {
 		return book;
 	}
 	
-	@GetMapping("/getbycategory/{category}")
-	public List<Book> getByCategory(@PathVariable("category")String category){
-		return bookService.getBooksByCategory(category);
+	@GetMapping("/getbycategoryid")
+	public List<Book> getByCategory(@RequestParam int id){
+		return bookService.getBooksByCategory(id);
+	}
+	@GetMapping("/getallcategory")
+	public List<Book> getAllCategory(){
+		return bookService.getAllCategory();
 	}
 	
 	@GetMapping("/getauthor/{author}")

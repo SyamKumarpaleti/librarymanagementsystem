@@ -85,14 +85,19 @@ public class BookService {
 	}
 	*/
 	
-	public List<Book> getBooksByCategory(String category) {
-        return bookRepository.findByCategory(category);
+	public List<Book> getBooksByCategory(int id) {
+        return bookRepository.findByCategory(id);
     }
 
 	
 	public List<Book> findByAuthor(String author) {
 		// TODO Auto-generated method stub
 		return bookRepository.findByAuthor(author);
+	}
+
+	public List<Book> getAllCategory() {
+		// TODO Auto-generated method stub
+		return bookRepository.findAllCategory();
 	}
 
 	

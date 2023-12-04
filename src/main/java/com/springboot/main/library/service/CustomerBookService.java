@@ -44,6 +44,11 @@ public class CustomerBookService {
 		return customerBookRepository.save(customerBook);
 	}
 
+	public List<CustomerBook> getcustomersBybookid(int id) {
+		
+		return customerBookRepository.findCustomers(id);
+	}
+
 	
 
 }
